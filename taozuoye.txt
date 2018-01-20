@@ -1,0 +1,58 @@
+第一题：打印出bob*dole相乘的数
+
+第二题：1
+
+第三题：for (; number > 0; accumulator *= number - -) ;应改为for (; number > 0; accumulator *= number --) ;
+
+第四题：
+double Pi()
+{
+//这里是你的代码
+int x = 0, y = 0;
+double n = 0, pi = 0;
+for (; x <= 1000; x++)
+{
+for (y = 0; y <= 1000; y++)
+{
+if ((500 - x)*(500 - x) + (500 - y)*(500 - y) <= 250000)
+n++;
+}
+}
+pi = (n / 250000);
+return pi;
+}
+
+或
+
+#include "stdafx.h"
+#include "time.h"
+#include "stdlib.h"
+double Pi()
+{
+//这里是你的代码
+int x = 0, y = 0;
+double n = 0, pi = 0, i,a=0;
+printf("请输入将在1000范围内投入多少点（点数越多精确度约大）\n");
+scanf_s("%lf", &i);
+srand((unsigned)time(NULL));
+for (; a <= i; a++)
+{
+x = (rand()*1000)/ 32767 ;
+y = (rand()*1000) / 32767;
+if ((500 - x)*(500 - x) + (500 - y)*(500 - y) <= 250000)
+n++;
+}
+pi = (n / i) * 4;
+return pi;
+}
+int _tmain(int argc, _TCHAR* argv[])
+{
+double x,y=0;
+for (; y <= 10; y++)
+{
+x = Pi();
+printf("%lf", x);
+}
+printf("输入到此结束");
+return 0;
+}
